@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="sampleAngularWithMVCModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="tb_Menu">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="varchar" MaxLength="250" />
+    <Property Name="groupName" Type="varchar" MaxLength="250" />
+    <Property Name="orderValue" Type="float" />
+    <Property Name="url" Type="varchar" MaxLength="250" />
+    <Property Name="contentText" Type="varchar(max)" />
+    <Property Name="createdOn" Type="datetime" />
+    <Property Name="updatedOn" Type="datetime" />
+    <Property Name="active" Type="bit" />
+    <Property Name="deleted" Type="bit" />
+  </EntityType>
+  <EntityContainer Name="sampleAngularWithMVCModelStoreContainer">
+    <EntitySet Name="tb_Menu" EntityType="Self.tb_Menu" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

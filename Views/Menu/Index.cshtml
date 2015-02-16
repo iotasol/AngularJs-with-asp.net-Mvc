@@ -1,0 +1,32 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="col-md-3 col-sm-4 no-padding admin-nav-bar-containor">
+ <nav class="navbar navbar-default custom-admin-nav-bar" data-role="navigation">
+  <!-- Brand and toggle get grouped for better mobile display -->
+  <div class="navbar-header">
+  <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+   <span class="sr-only">Toggle navigation</span>
+   <span class="icon-bar"></span>
+   <span class="icon-bar"></span>
+   <span class="icon-bar"></span>
+  </button>
+  <!--  <a class="navbar-brand dis-none" href="#">Welcome</a> -->
+  </div>
+    
+  <div class="collapse navbar-collapse navbar-ex1-collapse">
+  <ul class="nav navbar-nav">
+       <li><a href="#" id="manage-menu" class="nav-item">Manage Menu</a></li>
+       
+  </ul>
+  </div>
+ </nav>
+</div>
+<div class="col-md-9 col-sm-8 no-padding ">
+ <div class="col-md-12 admin-left-bar-containor">
+     <div data-ng-view=""></div> 
+ </div>
+</div>
+<div class="clearfix"></div>

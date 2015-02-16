@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="sampleAngularWithMVCModelStoreContainer" CdmEntityContainer="sampleAngularWithMVCEntities">
+    <EntitySetMapping Name="tb_Menu">
+      <EntityTypeMapping TypeName="sampleAngularWithMVCModel.tb_Menu">
+        <MappingFragment StoreEntitySet="tb_Menu">
+          <ScalarProperty Name="deleted" ColumnName="deleted" />
+          <ScalarProperty Name="active" ColumnName="active" />
+          <ScalarProperty Name="updatedOn" ColumnName="updatedOn" />
+          <ScalarProperty Name="createdOn" ColumnName="createdOn" />
+          <ScalarProperty Name="contentText" ColumnName="contentText" />
+          <ScalarProperty Name="url" ColumnName="url" />
+          <ScalarProperty Name="orderValue" ColumnName="orderValue" />
+          <ScalarProperty Name="groupName" ColumnName="groupName" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

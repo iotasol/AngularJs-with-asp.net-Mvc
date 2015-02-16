@@ -1,0 +1,179 @@
+﻿
+<div id="managemenu" class="main-table-container col-md-12 margin-top-20" style="border: 1px solid #eee; padding: 10px;" data-ng-show="isAddForm">
+	<div class=" margin-top-10">
+		<button class="btn btn-primary btn-xs"
+			data-ng-click="clearMenu();isAddForm=false;">Show Menu Listing</button>
+	</div>
+	<div>
+		<h4>Add New Menu</h4>
+	</div>
+	<form name="myForm" class="form-horizontal">
+		<div class="col-md-10 no-padding form-containor">			
+			<div class="col-md-6">
+                <div class="col-md-12 no-padding">
+				    <div class="col-md-12 no-padding">
+					    <h4>Name*</h4>
+				    </div>
+				    <div class="col-md-12 no-padding ">
+					    <input type="text" class="form-control ng-pristine ng-valid  ng-valid-required"
+						    name="name" placeholder="Enter name" data-ng-model="menu.name" required="required"  />
+					    <div style="clear:none"></div>
+					    <span data-ng-if="myForm.name.$error.required&&onClickValidate" data-ng-cloak class="help-inline error-text">Name is Required</span>
+				    </div>
+			    </div>		
+                
+               <!-- <div class="col-md-12 no-padding">
+				    <div class="col-md-12 no-padding">
+					    <h4>University*</h4>
+				    </div>
+				    <div class="col-md-12 no-padding ">
+					   <select name="universityName" class="form-control"
+                            data-ng-model="menu.university" required="required" data-ng-options="universityObj.title for universityObj in universityList">
+                            <option value="">- Select -</option>
+                        </select>
+                        <div style="clear:none"></div>
+                        <span
+                            data-ng-if="myForm.universityName.$error.required&&onClickValidate"
+                            data-ng-cloak class="error-text">Please
+				        select university</span>
+				    </div>
+			    </div>	-->
+
+                 <div class="col-md-12 no-padding">
+				    <div class="col-md-12 no-padding">
+					    <h4>Group*</h4>
+				    </div>
+				    <div class="col-md-12 no-padding ">
+					   <select name="group" class="form-control"
+                            data-ng-model="menu.groupName" required="required">
+                            <option value="">- Select -</option>
+                            <option value="MS">MS</option>
+                            <option value="AU">AU</option>
+                            <option value="TT">TT</option>
+                            <option value="MU">MU</option>
+                        </select>
+                        <div style="clear:none"></div>
+                        <span data-ng-if="myForm.group.$error.required&&onClickValidate"
+                              data-ng-cloak class="error-text">
+                            Please
+                            select group
+                        </span>
+				    </div>
+			    </div>		
+
+                <div class="col-md-12 no-padding">
+				    <div class="col-md-12 no-padding">
+					    <h4>Order*</h4>
+				    </div>
+				    <div class="col-md-12 no-padding ">
+                        <input type="number" class="form-control ng-pristine ng-valid  ng-valid-required"
+                               name="orderValue" placeholder="Entert order" data-ng-model="menu.orderValue" required="required" />
+					    <div style="clear:none"></div>
+                        <span data-ng-if="myForm.orderValue.$error.required&&onClickValidate" data-ng-cloak class="help-inline error-text"> Order is Required</span>
+                        <span data-ng-if="myForm.orderValue.$error.number&&onClickValidate" data-ng-cloak class="help-inline error-text"> Order is in invalid format</span>
+				    </div>
+			    </div>		
+                
+               <div class="col-md-12 no-padding">
+				    <div class="col-md-12 no-padding">
+					    <h4>URL</h4>
+				    </div>
+				    <div class="col-md-12 no-padding ">
+					    <input type="text" class="form-control"
+						    name="url" placeholder="Enter name" data-ng-model="menu.url"  />
+					    <div style="clear:none"></div>
+				    </div>
+			   </div>	
+                
+               <div class="col-md-12 no-padding">
+				    <div class="col-md-12 no-padding">
+					    <h4>Content</h4>
+				    </div>
+				    <div class="col-md-12 no-padding ">
+                        <textarea class="form-control"
+						    name="content" placeholder="Enter content" data-ng-model="menu.contentText"></textarea>
+					    <div style="clear:none"></div>
+				    </div>
+			   </div>		
+                
+			</div>
+           
+			<div class="clearfix"></div>
+			<div class="col-md-6">
+				<div class="col-md-6 no-padding margin-top-10">
+					<input type="checkbox" class="checkbox pull-left"
+						data-ng-model="menu.active"
+						style="margin-right: 10px; margin-top: 2px;"/>
+					<h4 class="pull-left" style="margin-top: 5px; margin-bottom: 5px;">Active</h4>
+				</div>
+				<div class="col-md-6 no-padding margin-top-10 text-right">
+					<button class="btn btn-primary"
+						data-ng-click="saveMenu(myForm.$valid)" data-ng-if="!menuUpdate">Save</button>
+                    <button class="btn btn-primary"
+						data-ng-click="updateMenu(myForm.$valid,menu)" data-ng-if="menuUpdate">Update</button>
+					<button class="btn btn-default" data-ng-click="clearMenu();">Clear</button>
+				</div>
+                <span class="success-text" style="color: green;display:none;">Menu has been saved successfully</span>
+                <span class="success-text2" style="color: green;display:none;">Menu has been updated successfully</span>
+			</div>
+		</div>
+	</form>
+</div>
+<div class="main-table-container col-md-12 margin-top-20"
+	style="border: 1px solid #eee; padding: 10px;"
+	data-ng-show="!isAddForm">
+	<div class="margin-top-10">
+		<button class="btn btn-primary btn-xs" data-ng-click="isAddForm=true;">Add New Menu</button>
+	</div>
+	<div class="">
+		<h4>Menu Listing:</h4>
+	</div>
+	<div class="clearfix"></div>
+    <input type="text" id="txtSearch" placeholder="Search keyword" class="form-control" onkeyup="searchTable(this.value);" style="width: 250px;"/>
+	<div class="table-responsive custom-table-responsive">
+		<table id="mytable" class="table table-bordered table-striped">
+			<thead>
+				<tr>
+					<th>Name</th>
+                    <th>Group</th>					
+					<th>Order</th>
+                    <th>Active</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr data-ng-repeat="menuObj in menuList" data-ng-if="menuList.length>0">
+                    <td>{{menuObj.name}}</td>	
+                    <td>{{menuObj.groupName}}</td>
+                    <td>{{menuObj.orderValue}}</td>
+                    <td data-ng-if="menuObj.active">Yes</td>	
+                    <td data-ng-if="!menuObj.active">No</td>			
+					<td><p>
+							<button class="btn btn-primary btn-xs" data-ng-click="showMenuForEdit(menuObj);">
+                                <span class="glyphicon glyphicon-pencil"></span>
+							</button>
+						</p></td>
+					<td><p>
+							<button class="btn btn-danger btn-xs"
+								data-ng-click="deleteMenu(menuObj);"
+								data-target="#delete">
+								<span class="glyphicon glyphicon-trash"></span>
+							</button>
+						</p></td>
+				</tr>
+              
+				<tr data-ng-if="menuList.length==0">
+					<td colspan="6" class="text-center">No Record is Available</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+
+</div>
+<div class="col-md-12" style="margin-bottom: 50px;"></div>
+<script>
+   
+    $(".nav-item").removeClass("active-nav-item");
+    $("#manage-menu").addClass("active-nav-item");
+</script>
